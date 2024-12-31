@@ -48,8 +48,7 @@ extension PackOutput {
         func encode(to encoder: any Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
             try container.encode(self.version, forKey: .version)
-            var singleContainer = encoder.singleValueContainer()
-            try singleContainer.encode(self.output)
+            try self.output.encode(to: encoder)
         }
     }
 
